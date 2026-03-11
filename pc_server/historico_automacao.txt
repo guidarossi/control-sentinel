@@ -1,0 +1,14 @@
+[2026-01-21 18:36:53] - TENTATIVA DE ACESSO NEGADA - Token: {"token":"anfitrioes_2026_seguro"}
+[2026-01-21 18:37:46] - Comando de desligamento recebido do IP: 127.0.0.1
+[2026-01-22 17:44:06] - Comando de desligamento (1800s) recebido.
+[2026-01-22 18:00:37] - Comando de desligamento (600s) recebido.
+[2026-01-22 18:14:20] - Comando de desligamento (120s) recebido.
+[2026-01-22 19:18:22] - Comando de desligamento (1800s) recebido.
+[2026-01-22 22:05:11] - Comando de desligamento (0s) recebido.
+[2026-01-23 14:53:10] - Comando de desligamento (600s) recebido.
+[2026-01-23 14:53:37] - Comando de desligamento (1800s) recebido.
+[2026-01-23 14:55:47] - Comando de desligamento (1800s) recebido.
+[2026-01-23 14:56:06] - Comando de desligamento (1200s) recebido.
+[2026-01-24 00:31:27] - Comando de desligamento (60s) recebido.
+[2026-01-24 11:54:53] - Comando de desligamento (0s) recebido.
+[2026-01-24 11:59:05] - Comando de desligamento (3600s) recebido.
