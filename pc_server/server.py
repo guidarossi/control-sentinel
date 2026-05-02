@@ -4,12 +4,7 @@ import pyautogui #Gestos/mouse/teclado
 import psutil #RAM e CPU
 from flask import Flask, request
 from flask_socketio import SocketIO, emit
-try:
-    import screen_brightness_control as sbc
-    sbc_available = True
-except ModuleNotFoundError:
-    sbc = None
-    sbc_available = False
+import screen_brightness_control as sbc
 import os
 from dotenv import load_dotenv
 
@@ -79,6 +74,27 @@ def handle_keyboard_key(data):
         pyautogui.press(key)
         print(f"Tecla pressionada: {key}")
 
+@socketio.on('exec_shutdown')
+def handle_shutdown(data):
+    """Valida o token e executa o comando de desligamento."""
+
+    if isinstance(data, dict):
+        token_recebido = data.get('token')
+    else:
+        token_recebido = data
+
+    if token_recebido == meu_token:
+        registrar_log(f"Comando de desligamento recebido do IP: {request.remote_addr}")
+        emit('confirmacao_acao', {'mensagem': 'O computador desligará em 60 segundos.'})
+        print(">>> TOKEN VALIDADO! DESLIGANDO... <<<")
+
+        # O comando real
+        subprocess.run(["shutdown", "-s", "-t", "60"], check=True)
+    else:
+        registrar_log(f"TENTATIVA DE ACESSO NEGADA - Token: {token_recebido}")
+        emit('erro_autenticacao', {'mensagem': 'Token inválido!'})
+        print(f"ALERTA: Tentativa de acesso com token inválido: {token_recebido}")
+
 @socketio.on('abortar_desligamento')
 def handle_abort():
     try:
@@ -110,12 +126,6 @@ def handle_mouse_click(data):
 
 @socketio.on('controle_brilho')
 def handle_brilho(data):
-    if not sbc_available:
-        mensagem = "Controle de brilho não disponível: módulo screen_brightness_control não está instalado."
-        print(mensagem)
-        emit('erro_acao', {'mensagem': mensagem})
-        return
-
     try:
         acao = data.get('acao')
         brilho_atual = sbc.get_brightness()[0]
