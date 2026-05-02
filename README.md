@@ -1,16 +1,28 @@
-# ecohost_app
+### Control Sentinel
+Control Sentinel is a hardware monitoring and remote automation system. It allows you to track your PC's performance and execute system commands directly from a mobile device.
 
-A new Flutter project.
+### ✨ Features
+- Real-time Monitoring: View live CPU, RAM, and temperature metrics via a dynamic dashboard.
+- Remote Commands: Shutdown or restart your computer remotely with immediate or scheduled timers.
+- System Control: Remotely manage mouse movements, clicks, text input, and system volume.
+- Security: Access is protected by biometric authentication (Fingerprint/Face ID) and token-based validation.
 
-## Getting Started
+### 🛠️ Tech Stack
+- Mobile App: Built with Flutter and Dart.
+- Backend Server: Powered by Python using Flask and Socket.io for real-time communication.
+- System Integration: Uses psutil for hardware data and PyAutoGUI for remote input simulation.
 
-This project is a starting point for a Flutter application.
+### 🚀 Getting Started1.
+ 1. Server Setup (PC)
+ Install the required Python libraries:
+ `Bashpip install flask-socketio psutil pyautogui eventlet`
 
-A few resources to get you started if this is your first Flutter project:
+ Run the backend:
+ `Bashpython server.py`
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+2. Mobile App Setup
+Install Flutter dependencies:
+`Bashflutter pub get`
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Run the application:
+`Bashflutter run`
