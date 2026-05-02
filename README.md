@@ -15,14 +15,14 @@ Control Sentinel is a hardware monitoring and remote automation system. It allow
 ### 🚀 Getting Started1.
  1. Server Setup (PC)
  Install the required Python libraries:
- `Bashpip install flask-socketio psutil pyautogui eventlet`
+ `pip install -r pc_server/requirements.txt`
 
  Run the backend:
- `Bashpython server.py`
+ `python server.py`
 
 2. Mobile App Setup
 Install Flutter dependencies:
-`Bashflutter pub get`
+`flutter pub get`
 
 Run the application:
-`Bashflutter run`
+`flutter run`

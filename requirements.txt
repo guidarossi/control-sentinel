@@ -1,0 +1,6 @@
+flask-socketio
+psutil
+pyautogui
+eventlet
+screen_brightness_control
+python-dotenv
